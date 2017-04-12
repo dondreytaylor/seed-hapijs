@@ -43,7 +43,7 @@ var Path     = require('path');
 var Hapi = require('hapi');
 var server = new Hapi.Server();
 server.connection({
-	port: 8000, 
+	port: 8000,
 	routes: { cors: { credentials: true } }
 });
 
@@ -82,6 +82,19 @@ var md5 = require('md5');
 |
 */
 var hat = require('hat');
+
+
+
+/*
+|--------------------------------------------------------------------------
+|  DB
+|--------------------------------------------------------------------------
+|
+|  MongoDB connection
+|
+*/
+var mongojs = require('mongojs')
+// var db = mongojs("username:password@host:port/database")
 
 
 /*
@@ -151,6 +164,7 @@ server.register([require('vision'), require("inert")], function (err) {
 	});
 
 
+
 	/*
 	|--------------------------------------------------------------------------
 	| WEB Route:
@@ -202,8 +216,7 @@ server.register([require('vision'), require("inert")], function (err) {
 	*/
 	server.start(function()
 	{
-
-		console.log("### SERVER STARTED ###");
+			console.log("### SERVER STARTED ###");
 	});
 
 });
